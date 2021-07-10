@@ -1,6 +1,6 @@
-#i will probably be using this class
-#for machine learning purposes, so we can store the games
-#in different files to store different games, probably single file
+# I will probably be using this class
+# for machine learning purposes, so we can store the games
+# in different files to store different games, probably single file
 class MoveStore:
 	def __init__(self):
 		self.movesList = []

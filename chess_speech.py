@@ -116,19 +116,16 @@ def recognize_speech_from_mic(recognizer, microphone):
 #         else:
 #             print("Sorry, you lose!\nI was thinking of '{}'.".format(word))
 #             break
-
+# create recognizer and mic instances
+recognizer = sr.Recognizer()
+microphone = sr.Microphone()
 
 def promptSpeech():
-    # create recognizer and mic instances
-    recognizer = sr.Recognizer()
-    microphone = sr.Microphone()
     while True:
-        print('Speak!') 
+        print('Speak!')
         guess = recognize_speech_from_mic(recognizer, microphone)
-        print("That means it had listened")
         if guess["transcription"]:
             break
-        
         if not guess["success"]:
             break
         print("I didn't catch that. What did you say?\n")
@@ -141,11 +138,7 @@ def promptSpeech():
     # show the user the transcription
     print("You said: {}".format(guess["transcription"]))
 
-    #if len(res)!=2:
-    #    print(res, "Invalid coordinates, speak again")
-    #    promptSpeech()
+    res =  guess["transcription"]
     if len(res)==2:
         res = res[0].lower() + res[1]
-
     return res
- 
